@@ -2,6 +2,8 @@
 
 Battleship game made using ReactJS using testing library, Jest.
 
+## [View Live](https://pratikawaik.github.io/battleship/)
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
