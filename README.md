@@ -1,6 +1,6 @@
 # Battleship
 
-Battleship game made using ReactJS using testing library, Jest.
+Battleship game made using ReactJS and testing library, Jest.
 
 ## [View Live](https://pratikawaik.github.io/battleship/)
 
