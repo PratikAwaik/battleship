@@ -4,6 +4,7 @@ import { getIndex, positionFound } from "../utils";
 import Board from "./Board";
 import Ship from "./Ship";
 import Player from "../gameLogic/player";
+import battleshipLogo from "../images/logo.png";
 
 export default function Game() {
   const [grid, setGrid] = useState([]);
@@ -200,6 +201,10 @@ export default function Game() {
 
   return (
     <div className="game-container">
+      <div className="game-heading">
+        <img src={battleshipLogo} alt="Battleship game logo" />
+        <h1>Battleship</h1>
+      </div>
       <div className="game-instructions">
         <h2>Instructions</h2>
         <ul>
@@ -229,6 +234,14 @@ export default function Game() {
         Start Game
       </button>
 
+      {!allShipsPlaced &&
+      !startGameBtnClicked &&
+      (humanPlayer ? humanPlayer.board.aliveShips.length === 0 : false) ? (
+        <button className="place-random-btn" onClick={(e) => placeRandom(e)}>
+          Place Randomly
+        </button>
+      ) : null}
+
       {winner === "human" ? (
         <p className="winner-text">Game Over! You Win</p>
       ) : winner === "computer" ? (
@@ -241,14 +254,6 @@ export default function Game() {
             <h3>Your Battlefield</h3>
             <Board isComputer={false} />
           </div>
-
-          {!allShipsPlaced && !startGameBtnClicked ? (
-            <button
-              className="place-random-btn"
-              onClick={(e) => placeRandom(e)}>
-              Place Randomly
-            </button>
-          ) : null}
 
           <div className="ships">
             {Object.keys(shipsOrientation).map((shipName, index) => {
